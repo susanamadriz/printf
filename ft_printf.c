@@ -6,7 +6,7 @@
 /*   By: sjuan-ma <sjuan-ma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 19:18:40 by sjuan-ma          #+#    #+#             */
-/*   Updated: 2024/09/12 12:12:25 by sjuan-ma         ###   ########.fr       */
+/*   Updated: 2024/10/02 12:24:36 by sjuan-ma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,23 @@ int check_letter(char letter, va_list args)
 {
 	if (letter == '%')
 		return (ft_putchar('%'));
-	if (letter == 'c')
+	else if (letter == 'c')
 		return (ft_putchar(va_arg(args, int)));
-	if (letter == 's')
+	else if (letter == 's')
 		return (ft_putstr(va_arg(args, char *)));
-	// if (letter == p)
-	// 	return ();
-	// if (letter == d || letter == i)
-	// 	return ();
-	// if (letter == u)
-	// 	return ();
-	// if (letter == x)
-	// 	return ();
-	// if (letter == X)
-	// 	return ();
+	else if (letter == 'd' || letter == 'i')
+		return (ft_putnbr(va_arg(args, int)));
+	else if (letter == 'u')
+		return (ft_putunbr(va_arg(args, int)));
+	else if (letter == 'p')
+		return (ft_put_ptr(va_arg(args, int *)));
+	else if (letter == 'x')
+	 	return (ft_hexa_min(va_arg(args, unsigned int)));
+	else if (letter == 'X')
+		return (ft_hexa_mayus(va_arg(args, unsigned int)));
+	return (0);
 }
+
 
 int	ft_printf(char const *str, ...)
 {
@@ -54,13 +56,14 @@ int	ft_printf(char const *str, ...)
 		}
 		i++;
 	}
+	// printf("\nLEN: %d\n", len);
 	va_end(args);
 	return (len);
 }
-int main()
-{
-	char *prueba = "hello kitty";
+// int main()
+// {
+// 	int	prueba = -12345;
 	
-	ft_printf("me gusta %s\n", prueba);
-	return (0);
-}
+// 	ft_printf("No tengo %u", prueba);
+// 	return (0);
+// }
