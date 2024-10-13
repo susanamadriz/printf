@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-int ft_hexa_min(unsigned int x)
+int	ft_hexa_min(unsigned int x)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (x >= 16)
@@ -23,17 +23,18 @@ int ft_hexa_min(unsigned int x)
 		i += ft_hexa_min(x % 16);
 	}
 	else
-	{ 
+	{
 		if (x < 10)
-			i += putchar(x + 48);
+			i += ft_putchar(x + 48);
 		else
-			i += putchar(x - 10 + 'a');
+			i += ft_putchar(x - 10 + 'a');
 	}
-return (i);
+	return (i);
 }
-int ft_hexa_mayus(unsigned int X)
+
+int	ft_hexa_mayus(unsigned int X)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (X >= 16)
@@ -42,12 +43,11 @@ int ft_hexa_mayus(unsigned int X)
 		i += ft_hexa_mayus(X % 16);
 	}
 	else
-	{ 
+	{
 		if (X < 10)
-			i += putchar(X + 48);
+			i += ft_putchar(X + 48);
 		else
-			i += putchar(X - 10 + 'A');
+			i += ft_putchar(X - 10 + 'A');
 	}
-return (i);
+	return (i);
 }
-

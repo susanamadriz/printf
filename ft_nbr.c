@@ -14,8 +14,8 @@
 
 int	ft_putnbr(int n)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (n < 0)
 	{
@@ -38,10 +38,11 @@ int	ft_putnbr(int n)
 	}
 	return (i);
 }
-int	ft_putunbr(int n)
+
+int	ft_putunbr(unsigned int n)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	if (n == 0)
 		i += write(1, "0", 1);

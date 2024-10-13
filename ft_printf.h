@@ -22,15 +22,14 @@
 
 // PRINTF
 int	ft_printf(char const *str, ...);
-int check_letter(char letter, va_list args);
+int	check_letter(char letter, va_list args);
 int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr(int n);
-int	ft_putunbr(int n);
-int ft_hexa_min(unsigned int x);
-int ft_hexa_mayus(unsigned int X);
-int ft_put_ptr(int *ptr);
-
-
+int	ft_putunbr(unsigned int n);
+int	ft_hexa_min(unsigned int x);
+int	ft_hexa_mayus(unsigned int X);
+int	ft_put_ptr(void *ptr);
+int	ft_hexa_min_ptr(unsigned long x);
 
 #endif

@@ -12,13 +12,36 @@
 
 #include "ft_printf.h"
 
-int ft_put_ptr(int *ptr)
+int	ft_put_ptr(void *ptr)
 {
-	int i;
+	unsigned long	address;
+	int				i;
 
 	i = 0;
-	write(1, "0x", 2);
-	i += ft_hexa_min(* ptr);
+	address = (unsigned long)ptr;
+	if (address == 0)
+		return (i += ft_putstr("(nil)"), i);
+	i += write(1, "0x", 2);
+	i += ft_hexa_min_ptr(address);
+	return (i);
+}
 
+int	ft_hexa_min_ptr(unsigned long x)
+{
+	int	i;
+
+	i = 0;
+	if (x >= 16)
+	{
+		i += ft_hexa_min_ptr(x / 16);
+		i += ft_hexa_min_ptr(x % 16);
+	}
+	else
+	{
+		if (x < 10)
+			i += ft_putchar(x + 48);
+		else
+			i += ft_putchar(x - 10 + 'a');
+	}
 	return (i);
 }
