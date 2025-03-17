@@ -6,7 +6,7 @@
 #    By: sjuan-ma <sjuan-ma@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/01 19:13:49 by sjuan-ma          #+#    #+#              #
-#    Updated: 2024/10/02 12:15:52 by sjuan-ma         ###   ########.fr        #
+#    Updated: 2025/03/17 16:47:30 by sjuan-ma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC =   ft_printf.c \
 OBJ = $(SRC:.c=.o)
 
 $(NAME): $(OBJ)
-		ar rcs $(NAME) $(OBJ)
+		ar -rcs $(NAME) $(OBJ)
 
 all: $(NAME)
 
@@ -34,3 +34,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: re clean fclean all
